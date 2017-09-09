@@ -1,0 +1,19 @@
+{{ define "surah" }}
+<article class="surah">
+	<section class="title">
+		<h1><bdo dir="rtl">{{ .Name }}</bdo></h1>
+		<h2>{{ .EnglishName }}</h2>
+		<h3>{{ .EnglishNameTranslation }}</h3>
+	</section>
+	{{ range .Ayaat }}
+		<div class="ayah">
+			<div class="ayah-num" data-ayah-id="{{- .Number -}}">{{ .NumberInSura }}</div><!--
+			--><div class="content">
+				{{ template "ayahAr" . -}}
+				{{- template "ayahEn" . -}}
+			</div>
+			<hr />
+		</div>
+	{{ end }}
+</article>
+{{ end }}

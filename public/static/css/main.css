@@ -1,0 +1,224 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'MeQuran';
+    src: url('//cdn.alquran.cloud/public/fonts/me_quran-webfont.otf');
+}
+
+.font-mequran {
+    font-family: 'MeQuran';
+}
+
+@font-face {
+    font-family: 'Quran';
+    src: url('//cdn.alquran.cloud/public/fonts/QURAN_STD.ttf');
+}
+
+.font-quran {
+    font-family: 'Quran';
+}
+
+@font-face {
+    font-family: 'Uthmani';
+    src: url("//cdn.alquran.cloud/public/fonts/uthman_tn09.otf") format("opentype");
+}
+
+.font-uthmani {
+    font-family: 'Uthmani', serif;
+}
+
+
+@font-face {
+    font-family: 'KFGQPC_Naskh';
+    src: url('../font/KFC_naskh.eot');
+    src: local('KFGQPC Uthman Taha Naskh'), url('/static/font/KFC_naskh.otf') format('opentype');
+}
+
+body {
+    font-family: "KFGQPC Uthman Taha Naskh", KFGQPC_Naskh, 'PT Serif', serif;
+    font-size: 100%;
+    background-color: rgb(229, 221, 255);
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-size-adjust: 0.5;
+}
+
+article {
+    font-size: 1em;
+    line-height: 1.25;
+    background-color: rgb(248, 248, 255);
+}
+
+@media (min-width: 43.75em) {
+    article {
+        font-size: 1em;
+        line-height: 1.375;
+    }
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.25;
+}
+
+@media (min-width: 43.75em) {
+    h1 {
+        font-size: 2.5em;
+        line-height: 1.125;
+    }
+}
+
+@media (min-width: 56.25em) {
+    h1 {
+        font-size: 3em;
+        line-height: 1.05;
+    }
+}
+
+h2 {
+    font-size: 1.625em;
+    line-height: 1.15384615;
+}
+
+@media (min-width: 43.75em) {
+    h2 {
+        font-size: 2em;
+        line-height: 1.25;
+    }
+}
+
+@media (min-width: 56.25em) {
+    h2 {
+        font-size: 2.25em;
+        line-height: 1.25;
+    }
+}
+
+h3 {
+    font-size: 1.375em;
+    line-height: 1.13636364;
+}
+
+@media (min-width: 43.75em) {
+    h3 {
+        font-size: 1.5em;
+        line-height: 1.25;
+    }
+}
+
+@media (min-width: 56.25em) {
+    h3 {
+        font-size: 1.75em;
+        line-height: 1.25;
+    }
+}
+
+h4 {
+    font-size: 1.125em;
+    line-height: 1.11111111;
+}
+
+@media (min-width: 43.75em) {
+    h4 {
+        line-height: 1.22222222;
+    }
+}
+
+*[dir="ltr"] { direction: ltr; unicode-bidi: embed; }
+
+*[dir="rtl"] { direction: rtl; unicode-bidi: embed; }
+
+bdo[dir="ltr"] { direction: ltr; unicode-bidi: bidi-override; }
+
+bdo[dir="rtl"] { direction: rtl; unicode-bidi: bidi-override; }
+
+nav {
+    display: none;
+}
+
+.title {
+    text-align: center;
+}
+
+.arabic-text {
+    font-size: 1.8em;
+}
+
+.ayah:not(:last-child) hr {
+    width: 90%;
+    border-width: 1px;
+    border-color: rgb(221, 215, 247);
+}
+
+.ayah:last-child hr {
+    display: none;
+}
+
+.ayah-num {
+    width: 15%;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.content {
+    width: 75%;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.content p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.surah {
+    max-width: 44em;
+    margin: 0 auto;
+}
+
+/* Clearfix: contain floats */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* Page furniture */
+article {
+    width: 95%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 0;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    box-shadow: 0 0 20px rgba(50, 50, 50, 0.5);
+    overflow: hidden;
+}
+@media (min-width: 43.75em) {
+    article {
+        max-width: 960px;
+    }
+}
+@media (min-width: 56.25em) {
+    article {
+        max-width: 1050px;
+    }
+}
+@media (min-width: 81.25em) {
+    article {
+        max-width: 1200px;
+    }
+}
