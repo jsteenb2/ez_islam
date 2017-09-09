@@ -20,6 +20,7 @@ var baseURL = os.Getenv("base")
 
 func main() {
 	db := quran.GetQuranDB()
+func GenerateQuran(db model.DBface, baseURL string) {
 	sahihEdition, err := model.GetQuran([]byte("quran"), []byte("en.sahih"), db)
 	if err != nil {
 		panic(err)
