@@ -10,19 +10,19 @@ import (
 	"github.com/jsteenb2/quran/model"
 )
 
-func GenerateQuran(db model.DBface, baseURL string) {
+func GenerateQuran(db model.DBface, baseURL, repoPath string) {
 	sahihEdition, err := model.GetQuran([]byte("quran"), []byte("en.sahih"), db)
 	if err != nil {
 		panic(err)
 	}
 
-	CreateHTMLFiles(sahihEdition, baseURL)
+	CreateHTMLFiles(sahihEdition, baseURL, repoPath)
 }
 
-func CreateHTMLFiles(quranEdition model.QuranMeta, baseURL string) {
+func CreateHTMLFiles(quranEdition model.QuranMeta, baseURL, repoPath string) {
 	templates, err := template.ParseGlob("templates/*.tmpl")
 	checkLog(err)
-	pathPrefix := fmt.Sprintf("%s/src/github.com/jsteenb2/ez_islam/public/%s", os.Getenv("GOPATH"), quranEdition.Identifier)
+	pathPrefix := fmt.Sprintf("%s/public/%s", repoPath, quranEdition.Identifier)
 
 	for idx := range quranEdition.Suwar {
 		CreateSurahHTMLFile(pathPrefix, baseURL, quranEdition.Suwar[idx], templates)
