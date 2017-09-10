@@ -38,6 +38,7 @@ func CreateSurahHTMLFile(pathPrefix, baseURL string, surah model.SuraMeta, templ
 	defer outputFile.Close()
 	surahContext := SurahContext{surah, baseURL}
 	templates.ExecuteTemplate(outputFile, "content.tmpl", surahContext)
+	fmt.Println("successfully created ", surah.EnglishName)
 }
 
 type SurahContext struct {
