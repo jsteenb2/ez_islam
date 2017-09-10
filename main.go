@@ -9,13 +9,13 @@ import (
 )
 
 var (
-	BASEURL = os.Getenv("BASEURL")
+	BASEURL  = os.Getenv("BASEURL")
 	REPOPATH = os.Getenv("REPO")
-	DBPATH  = os.Getenv("DBPATH")
+	DB       = os.Getenv("DB")
 )
 
 func main() {
-	db := quran.GetQuranDB(getDBPath(DBPATH))
+	db := quran.GetQuranDB(getDBPath(DB))
 	builder.GenerateQuran(db, BASEURL, REPOPATH)
 }
 
