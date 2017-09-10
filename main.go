@@ -1,21 +1,27 @@
 package main
 
 import (
+	"log"
 	"os"
 
 	"github.com/jsteenb2/ez_islam/builder"
 	"github.com/jsteenb2/quran"
-	"log"
 )
 
-var BaseURL = os.Getenv("base")
+var (
+	BASEURL = os.Getenv("base")
+	DBPATH  = os.Getenv("DBPATH")
+)
 
 func main() {
-	db := quran.GetQuranDB(getDBPath())
-	builder.GenerateQuran(db, BaseURL)
+	db := quran.GetQuranDB(getDBPath(DBPATH))
+	builder.GenerateQuran(db, BASEURL)
 }
 
-func getDBPath() string {
+func getDBPath(userInput string) string {
+	if userInput != "" {
+		return userInput
+	}
 	dbPath, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
