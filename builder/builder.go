@@ -34,7 +34,7 @@ func CreateSurahHTMLFile(pathPrefix, baseURL string, surah model.SuraMeta, templ
 		os.MkdirAll(path, os.ModePerm)
 	}
 	outputFile, err := os.Create(path + "index.html")
-	if hasError := checkLog(err); hasError == true {
+	if hasError := checkLog(err); hasError {
 		return
 	}
 	defer outputFile.Close()
