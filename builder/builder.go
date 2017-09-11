@@ -34,7 +34,9 @@ func CreateSurahHTMLFile(pathPrefix, baseURL string, surah model.SuraMeta, templ
 		os.MkdirAll(path, os.ModePerm)
 	}
 	outputFile, err := os.Create(path + "index.html")
-	checkLog(err)
+	if hasError := checkLog(err); hasError == true {
+		return
+	}
 	defer outputFile.Close()
 	surahContext := SurahContext{surah, baseURL}
 	templates.ExecuteTemplate(outputFile, "content.tmpl", surahContext)
@@ -46,8 +48,11 @@ type SurahContext struct {
 	BaseURL string
 }
 
-func checkLog(err error) {
+func checkLog(err error) (hasError bool) {
 	if err != nil {
 		log.Println("E! ", err)
+		hasError = true
 	}
+	hasError = false
+	return
 }
