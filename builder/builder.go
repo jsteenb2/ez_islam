@@ -22,7 +22,7 @@ func GenerateQuran(db model.DBface, baseURL, repoPath string) {
 func CreateHTMLFiles(quranEdition model.QuranMeta, baseURL, repoPath string) {
 	templates, err := template.ParseGlob("templates/*.tmpl")
 	checkLog(err)
-	pathPrefix := fmt.Sprintf("%s/public/%s", repoPath, quranEdition.Identifier)
+	pathPrefix := strings.Join([]string{repoPath, "public", quranEdition.Identifier}, "/")
 
 	for idx := range quranEdition.Suwar {
 		CreateSurahHTMLFile(pathPrefix, baseURL, quranEdition.Suwar[idx], templates)
