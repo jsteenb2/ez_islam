@@ -32,7 +32,6 @@ func CreateSurahHTMLFile(pathPrefix, baseURL string, surah model.SuraMeta, templ
 	path := fmt.Sprintf("%s/%d-%s/", pathPrefix, surah.Number, strings.ToLower(surah.EnglishName))
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		os.MkdirAll(path, os.ModePerm)
-		checkLog(err)
 	}
 	outputFile, err := os.Create(path + "index.html")
 	if hasError := checkLog(err); hasError == true {
