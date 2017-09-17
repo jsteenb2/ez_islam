@@ -1,8 +1,9 @@
 {{ define "surah" }}
 <article class="surah">
-	{{ template "title" . }}
-	{{ range .Ayaat }}
+	{{ template "title" .SurahWrap }}
+	{{ range .SurahWrap.Ayaat }}
 		{{ template "ayah" . }}
 	{{ end }}
+	{{- template "navigation" . -}}
 </article>
 {{ end }}
