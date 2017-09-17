@@ -3,13 +3,13 @@
 		{{ if ne .PrevSura.EnglishName "" }}
 			<a class="nav-button left" href="/{{ .Edition }}/{{ .PrevSura.SuraPath }}">
 				<span class="triangle"></span>
-				{{ .PrevSura.EnglishName }}
+				{{- .PrevSura.EnglishName -}}
 			</a>
 		{{ end }}
 
 		{{ if ne .NextSura.EnglishName "" }}
 			<a class="nav-button right" href="/{{ .Edition }}/{{ .NextSura.SuraPath }}">
-				{{ .NextSura.EnglishName }}
+				{{- .NextSura.EnglishName -}}
 				<span class="triangle"></span>
 			</a>
 		{{ end }}
