@@ -5,9 +5,12 @@
 }
 
 @font-face {
-    font-family: 'KFGQPC_Naskh', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
-    src: url('/static/font/KFC_naskh.eot');
-    src: local('KFGQPC Uthman Taha Naskh'), url('/static/font/KFC_naskh.otf') format('opentype');
+    font-family: ScheherazadeRW;
+    src: url(/static/font/Scheherazade-Regular.woff);
+}
+
+.font-scheheraza {
+    font-family: 'Scheheraza', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 body {
@@ -17,7 +20,7 @@ body {
 }
 
 .arabic-text {
-    font-family: "KFGQPC Uthman Taha Naskh", KFGQPC_Naskh, "Helvetica Neue", "Helvetica", sans-serif;
+    font-family: ScheherazadeRW, "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 p.arabic-text {
@@ -268,30 +271,3 @@ article {
         max-width: 1200px;
     }
 }
-
-/*@font-face {*/
-    /*font-family: 'MeQuran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
-    /*src: url('/static/font/me_quran-webfont.otf');*/
-/*}*/
-
-/*.font-mequran {*/
-    /*font-family: 'MeQuran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
-/*}*/
-
-/*@font-face {*/
-    /*font-family: 'Quran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
-    /*src: url('/static/font/QURAN_STD.ttf');*/
-/*}*/
-
-/*.font-quran {*/
-    /*font-family: 'Quran';*/
-/*}*/
-
-/*@font-face {*/
-    /*font-family: 'Uthmani', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
-    /*src: url("/static/font/uthman_tn09.otf") format("opentype");*/
-/*}*/
-
-/*.font-uthmani {*/
-    /*font-family: 'Uthmani', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
-/*}*/
