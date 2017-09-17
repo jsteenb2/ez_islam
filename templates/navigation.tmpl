@@ -1,11 +1,15 @@
 {{ define "navigation" }}
 	<div>
 		{{ if ne .PrevSura.EnglishName "" }}
-			ones
+			<a href="/{{ .Edition }}/{{ .PrevSura.SuraPath }}">
+				{{ .PrevSura.EnglishName }}
+			</a>
 		{{ end }}
 
 		{{ if ne .NextSura.EnglishName "" }}
-			threes
+			<a href="/{{ .Edition }}/{{ .NextSura.SuraPath }}">
+				{{ .NextSura.EnglishName }}
+			</a>
 		{{ end }}
 	</div>
 {{ end }}
