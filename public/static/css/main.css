@@ -35,7 +35,7 @@ p.arabic-text {
     line-height: 1.8em;
 }
 
-@media only screen and (max-width : 500px) {
+@media only screen and (max-width : 425px) {
     .nav-button {
         width: 50%;
         font-size: 1.25em;
@@ -51,17 +51,19 @@ p.arabic-text {
 
 .surah-nav .nav-button.left .triangle {
     border-right: 0.4em solid #B72D41;
+    margin-right: 0.2em;
 }
 
 .surah-nav .nav-button.right {
     border-bottom-left-radius: 1em;
-    padding-right: 0.5em;
+    padding-right: 0.2em;
     text-align: right;
     float: right;
 }
 
 .surah-nav .nav-button.right .triangle {
     border-left: 0.4em solid #B72D41;
+    margin-left: 0.2em;
 }
 
 .nav-button:hover {
@@ -199,6 +201,11 @@ nav {
     padding-top: 0.5em;
     vertical-align: top;
     display: inline-block;
+}
+@media only screen and (max-width : 413px) {
+    .content {
+        width: 100%;
+    }
 }
 
 .content p {
