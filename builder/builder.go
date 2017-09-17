@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/jsteenb2/quran/model"
@@ -22,30 +23,51 @@ func GenerateQuran(db model.DBface, baseURL, repoPath string) {
 func CreateHTMLFiles(quranEdition model.QuranMeta, baseURL, repoPath string) {
 	templates, err := template.ParseGlob("templates/*.tmpl")
 	checkLog(err)
-	pathPrefix := strings.Join([]string{repoPath, "public", quranEdition.Identifier}, "/")
 
+	pathPrefix := filepath.Join(repoPath, "public", quranEdition.Identifier)
 	for idx := range quranEdition.Suwar {
-		CreateSurahHTMLFile(pathPrefix, baseURL, quranEdition.Suwar[idx], templates)
+		surah := NewSurahContext(idx, baseURL, quranEdition)
+		CreateSurahHTMLFile(pathPrefix, surah, templates)
 	}
 }
-func CreateSurahHTMLFile(pathPrefix, baseURL string, surah model.SuraMeta, templates *template.Template) {
-	path := fmt.Sprintf("%s/%d-%s/", pathPrefix, surah.Number, strings.ToLower(surah.EnglishName))
+func CreateSurahHTMLFile(pathPrefix string, surah SurahContext, templates *template.Template) {
+	path := filepath.Join(pathPrefix, surah.pathID())
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		os.MkdirAll(path, os.ModePerm)
 	}
-	outputFile, err := os.Create(path + "index.html")
-	if hasError := checkLog(err); hasError {
+	outputFile, createErr := os.Create(filepath.Join(path, "index.html"))
+	if hasError := checkLog(createErr); hasError {
 		return
 	}
+
 	defer outputFile.Close()
-	surahContext := SurahContext{surah, baseURL}
-	templates.ExecuteTemplate(outputFile, "content.tmpl", surahContext)
-	fmt.Println("successfully created ", surah.EnglishName)
+	if tempErr := templates.ExecuteTemplate(outputFile, "content.tmpl", surah); !checkLog(tempErr) {
+		fmt.Println("successfully created ", surah.SuraMeta.EnglishName)
+	}
+}
+
+func NewSurahContext(currentIndex int, baseURL string, quran model.QuranMeta) (surah SurahContext) {
+	surah.BaseURL = baseURL
+	surah.SuraMeta = quran.Suwar[currentIndex]
+	if currentIndex != 0 {
+		surah.PrevSura = quran.Suwar[currentIndex-1]
+	}
+
+	if currentIndex != 113 {
+		surah.NextSura = quran.Suwar[currentIndex+1]
+	}
+	return
 }
 
 type SurahContext struct {
 	model.SuraMeta
-	BaseURL string
+	PrevSura model.SuraMeta
+	NextSura model.SuraMeta
+	BaseURL  string
+}
+
+func (s SurahContext) pathID() string {
+	return fmt.Sprintf("%d-%s", s.Number, strings.ToLower(s.EnglishName))
 }
 
 func checkLog(err error) (hasError bool) {

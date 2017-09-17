@@ -2,6 +2,7 @@
 {{ template "head" .}}
 <body>
     {{ template "navbar" }}
-    {{template "surah" . }}
+    {{ template "surah" .SuraMeta }}
+    {{- template "navigation" . -}}
 </body>
 </html>
