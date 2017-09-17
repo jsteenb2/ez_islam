@@ -1,14 +1,16 @@
 {{ define "navigation" }}
-	<div>
+	<div class="surah-nav">
 		{{ if ne .PrevSura.EnglishName "" }}
-			<a href="/{{ .Edition }}/{{ .PrevSura.SuraPath }}">
+			<a class="nav-button left" href="/{{ .Edition }}/{{ .PrevSura.SuraPath }}">
+				<span class="triangle"></span>
 				{{ .PrevSura.EnglishName }}
 			</a>
 		{{ end }}
 
 		{{ if ne .NextSura.EnglishName "" }}
-			<a href="/{{ .Edition }}/{{ .NextSura.SuraPath }}">
+			<a class="nav-button right" href="/{{ .Edition }}/{{ .NextSura.SuraPath }}">
 				{{ .NextSura.EnglishName }}
+				<span class="triangle"></span>
 			</a>
 		{{ end }}
 	</div>

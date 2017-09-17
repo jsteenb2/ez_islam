@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'KFGQPC_Naskh', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
+    src: url('/static/font/KFC_naskh.eot');
+    src: local('KFGQPC Uthman Taha Naskh'), url('/static/font/KFC_naskh.otf') format('opentype');
+}
+
 body {
     font-family: 'PT Sans', "Helvetica Neue", "Helvetica", sans-serif;
     font-size: 100%;
@@ -17,6 +23,60 @@ body {
 p.arabic-text {
     font-size: 1.8em;
     line-height: 1.5em;
+}
+
+.nav-button {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.8em;
+    width: 40%;
+    color: darkmagenta;
+    background-color: rgb(221, 215, 247);
+    line-height: 1.8em;
+}
+
+@media only screen and (max-width : 500px) {
+    .nav-button {
+        width: 50%;
+        font-size: 1.25em;
+        line-height: 1.6em;
+    }
+}
+
+.surah-nav .nav-button.left {
+    border-bottom-right-radius: 1em;
+    padding-left: 0.2em;
+    float: left;
+}
+
+.surah-nav .nav-button.left .triangle {
+    border-right: 0.4em solid #B72D41;
+}
+
+.surah-nav .nav-button.right {
+    border-bottom-left-radius: 1em;
+    padding-right: 0.5em;
+    text-align: right;
+    float: right;
+}
+
+.surah-nav .nav-button.right .triangle {
+    border-left: 0.4em solid #B72D41;
+}
+
+.nav-button:hover {
+    color: #B72D41;
+}
+
+.triangle {
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
@@ -123,7 +183,7 @@ nav {
 }
 
 .ayah-num {
-    width: 10%;
+    width: 4em;
     font-size: 1.3em;
     padding: 0.1em 0.3em;
     text-align: center;
@@ -131,7 +191,6 @@ nav {
     display: inline-block;
     border-bottom-right-radius: 1em;
     background-color: rgb(221, 215, 247);
-    margin-left: 5%;
     color: darkmagenta;
 }
 
@@ -203,36 +262,29 @@ article {
     }
 }
 
-@font-face {
-    font-family: 'MeQuran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
-    src: url('/static/font/me_quran-webfont.otf');
-}
+/*@font-face {*/
+    /*font-family: 'MeQuran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
+    /*src: url('/static/font/me_quran-webfont.otf');*/
+/*}*/
 
-.font-mequran {
-    font-family: 'MeQuran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
-}
+/*.font-mequran {*/
+    /*font-family: 'MeQuran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
+/*}*/
 
-@font-face {
-    font-family: 'Quran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
-    src: url('/static/font/QURAN_STD.ttf');
-}
+/*@font-face {*/
+    /*font-family: 'Quran', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
+    /*src: url('/static/font/QURAN_STD.ttf');*/
+/*}*/
 
-.font-quran {
-    font-family: 'Quran';
-}
+/*.font-quran {*/
+    /*font-family: 'Quran';*/
+/*}*/
 
-@font-face {
-    font-family: 'Uthmani', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
-    src: url("/static/font/uthman_tn09.otf") format("opentype");
-}
+/*@font-face {*/
+    /*font-family: 'Uthmani', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
+    /*src: url("/static/font/uthman_tn09.otf") format("opentype");*/
+/*}*/
 
-.font-uthmani {
-    font-family: 'Uthmani', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
-}
-
-
-@font-face {
-    font-family: 'KFGQPC_Naskh', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;
-    src: url('/static/font/KFC_naskh.eot');
-    src: local('KFGQPC Uthman Taha Naskh'), url('/static/font/KFC_naskh.otf') format('opentype');
-}
+/*.font-uthmani {*/
+    /*font-family: 'Uthmani', 'Helvetica Neue', "Helvetica Neue", "Helvetica", sans-serif;*/
+/*}*/
